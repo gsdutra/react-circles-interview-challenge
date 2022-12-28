@@ -9,6 +9,7 @@ function App() {
 
 	const [mousePos, setMousePos] = useState({});
 	const [circlesArray, setCircles] = useState([]);
+	const [history, setHistory]= useState([]);
 
 	useEffect(() => {
 	  const handleMouseMove = (event) => {
@@ -28,16 +29,16 @@ function App() {
 	function addCircle(){
 		const tempCircles = [...circlesArray, [mousePos.x, mousePos.y]];
 		setCircles(tempCircles);
-		//console.log(mousePos);
+		setHistory([]);
 	}
 
 	return (<>
 		<ClickArea onClick={addCircle}>
-			{circlesArray.map((coords)=>(
-				<Circle coords={coords}/>
+			{circlesArray.map((coords, index)=>(
+				<Circle coords={coords} key={index}/>
 			))}
 		</ClickArea>
-		<Buttons circlesArray={circlesArray} setCircles={setCircles}/>
+		<Buttons circlesArray={circlesArray} setCircles={setCircles} history={history} setHistory={setHistory}/>
 	</>);
 }
 

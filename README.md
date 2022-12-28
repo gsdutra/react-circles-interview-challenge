@@ -7,6 +7,7 @@
 - There must be two functionalities:
     - `Undo button;`
     - `Redo button;`
+    - `Reset button;`
 
 ---------------------------
 

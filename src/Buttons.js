@@ -3,15 +3,25 @@ import { useEffect, useState } from 'react';
 
 export default function Buttons(props){
 
+    const [history, setHistory]= useState([]);
+
     function reset(){
-        
+        props.setCircles([]);
+    }
+
+    function undo(){
+        //const undoCircle = props.circlesArray[circlesArray.length-1];
+        //const tempHistory = [...history, undoCircle];
+        const tempCirclesArray = [...props.circlesArray];
+        tempCirclesArray.splice(-1,1);
+        props.setCircles(tempCirclesArray);
     }
 
     return(<>
         <ButtonsStyled>
-            <button>Undo</button>
+            <button onClick={undo}>Undo</button>
             <button>Redo</button>
-            <button>Reset</button>
+            <button onClick={reset}>Reset</button>
         </ButtonsStyled>
     </>)
 }

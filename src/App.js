@@ -28,7 +28,7 @@ function App() {
 	function addCircle(){
 		const tempCircles = [...circlesArray, [mousePos.x, mousePos.y]];
 		setCircles(tempCircles);
-		console.log(mousePos);
+		//console.log(mousePos);
 	}
 
 	return (<>
